@@ -1,0 +1,245 @@
+
+(base) C:\Users\aleja>conda activate geo_env
+
+(geo_env) C:\Users\aleja>cd C:\Users\aleja\geo_env
+
+(geo_env) C:\Users\aleja\geo_env>python assigment_2.py
+> c:\users\aleja\geo_env\assigment_2.py(12)<module>()
+-> import xarray as xr
+(Pdb) dset = xr.open_dataset(r'C:/Users/aleja/geo_env/Course_Data/Climate_Model_Data/tas_Amon_GFDL-ESM4_historical_r1i1p1f1_gr1_195001-201412.nc')
+(Pdb) print(dset)
+<xarray.Dataset> Size: 162MB
+Dimensions:    (bnds: 2, lat: 180, lon: 288, time: 780)
+Coordinates:
+  * bnds       (bnds) float64 16B 1.0 2.0
+    height     float64 8B ...
+  * lat        (lat) float64 1kB -89.5 -88.5 -87.5 -86.5 ... 86.5 87.5 88.5 89.5
+  * lon        (lon) float64 2kB 0.625 1.875 3.125 4.375 ... 356.9 358.1 359.4
+  * time       (time) object 6kB 1950-01-16 12:00:00 ... 2014-12-16 12:00:00
+Data variables:
+    lat_bnds   (lat, bnds) float64 3kB ...
+    lon_bnds   (lon, bnds) float64 5kB ...
+    tas        (time, lat, lon) float32 162MB ...
+    time_bnds  (time, bnds) object 12kB ...
+Attributes: (12/46)
+    external_variables:     areacella
+    history:                File was processed by fremetar (GFDL analog of CM...
+    table_id:               Amon
+    activity_id:            CMIP
+    branch_method:          standard
+    branch_time_in_child:   0.0
+    ...                     ...
+    title:                  NOAA GFDL GFDL-ESM4 model output prepared for CMI...
+    tracking_id:            hdl:21.14100/a54fe2f4-0a68-4420-8702-36750bde9b05
+    variable_id:            tas
+    variant_info:           N/A
+    references:             see further_info_url attribute
+    variant_label:          r1i1p1f1
+(Pdb) print(dset.variables.keys())
+KeysView(Frozen({'bnds': <xarray.IndexVariable 'bnds' (bnds: 2)> Size: 16B
+array([1., 2.])
+Attributes:
+    long_name:  vertex number, 'height': <xarray.Variable ()> Size: 8B
+[1 values with dtype=float64]
+Attributes:
+    long_name:      height
+    units:          m
+    cell_methods:   time: point
+    axis:           Z
+    positive:       up
+    standard_name:  height
+    description:    ~2 m standard surface air temperature and surface humidit..., 'lat': <xarray.IndexVariable 'lat' (lat: 180)> Size: 1kB
+array([-89.5, -88.5, -87.5, -86.5, -85.5, -84.5, -83.5, -82.5, -81.5, -80.5,
+       -79.5, -78.5, -77.5, -76.5, -75.5, -74.5, -73.5, -72.5, -71.5, -70.5,
+       -69.5, -68.5, -67.5, -66.5, -65.5, -64.5, -63.5, -62.5, -61.5, -60.5,
+       -59.5, -58.5, -57.5, -56.5, -55.5, -54.5, -53.5, -52.5, -51.5, -50.5,
+       -49.5, -48.5, -47.5, -46.5, -45.5, -44.5, -43.5, -42.5, -41.5, -40.5,
+       -39.5, -38.5, -37.5, -36.5, -35.5, -34.5, -33.5, -32.5, -31.5, -30.5,
+       -29.5, -28.5, -27.5, -26.5, -25.5, -24.5, -23.5, -22.5, -21.5, -20.5,
+       -19.5, -18.5, -17.5, -16.5, -15.5, -14.5, -13.5, -12.5, -11.5, -10.5,
+        -9.5,  -8.5,  -7.5,  -6.5,  -5.5,  -4.5,  -3.5,  -2.5,  -1.5,  -0.5,
+         0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,   9.5,
+        10.5,  11.5,  12.5,  13.5,  14.5,  15.5,  16.5,  17.5,  18.5,  19.5,
+        20.5,  21.5,  22.5,  23.5,  24.5,  25.5,  26.5,  27.5,  28.5,  29.5,
+        30.5,  31.5,  32.5,  33.5,  34.5,  35.5,  36.5,  37.5,  38.5,  39.5,
+        40.5,  41.5,  42.5,  43.5,  44.5,  45.5,  46.5,  47.5,  48.5,  49.5,
+        50.5,  51.5,  52.5,  53.5,  54.5,  55.5,  56.5,  57.5,  58.5,  59.5,
+        60.5,  61.5,  62.5,  63.5,  64.5,  65.5,  66.5,  67.5,  68.5,  69.5,
+        70.5,  71.5,  72.5,  73.5,  74.5,  75.5,  76.5,  77.5,  78.5,  79.5,
+        80.5,  81.5,  82.5,  83.5,  84.5,  85.5,  86.5,  87.5,  88.5,  89.5])
+Attributes:
+    long_name:      latitude
+    units:          degrees_north
+    axis:           Y
+    bounds:         lat_bnds
+    standard_name:  latitude
+    cell_methods:   time: point, 'lat_bnds': <xarray.Variable (lat: 180, bnds: 2)> Size: 3kB
+[360 values with dtype=float64]
+Attributes:
+    long_name:  latitude bounds
+    units:      degrees_north
+    axis:       Y, 'lon': <xarray.IndexVariable 'lon' (lon: 288)> Size: 2kB
+array([  0.625,   1.875,   3.125, ..., 356.875, 358.125, 359.375], shape=(288,))
+Attributes:
+    long_name:      longitude
+    units:          degrees_east
+    axis:           X
+    bounds:         lon_bnds
+    standard_name:  longitude
+    cell_methods:   time: point, 'lon_bnds': <xarray.Variable (lon: 288, bnds: 2)> Size: 5kB
+[576 values with dtype=float64]
+Attributes:
+    long_name:  longitude bounds
+    units:      degrees_east
+    axis:       X, 'tas': <xarray.Variable (time: 780, lat: 180, lon: 288)> Size: 162MB
+[40435200 values with dtype=float32]
+Attributes:
+    long_name:      Near-Surface Air Temperature
+    units:          K
+    cell_methods:   area: time: mean
+    cell_measures:  area: areacella
+    standard_name:  air_temperature
+    interp_method:  conserve_order2
+    original_name:  tas, 'time': <xarray.IndexVariable 'time' (time: 780)> Size: 6kB
+array([cftime.DatetimeNoLeap(1950, 1, 16, 12, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(1950, 2, 15, 0, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(1950, 3, 16, 12, 0, 0, 0, has_year_zero=True),
+       ...,
+       cftime.DatetimeNoLeap(2014, 10, 16, 12, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(2014, 11, 16, 0, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(2014, 12, 16, 12, 0, 0, 0, has_year_zero=True)],
+      shape=(780,), dtype=object)
+Attributes:
+    long_name:      time
+    axis:           T
+    calendar_type:  noleap
+    bounds:         time_bnds
+    standard_name:  time
+    description:    Temporal mean, 'time_bnds': <xarray.Variable (time: 780, bnds: 2)> Size: 12kB
+[1560 values with dtype=object]
+Attributes:
+    long_name:  time axis boundaries}))
+(Pdb) tas = dset['tas']
+(Pdb) print(tas)
+<xarray.DataArray 'tas' (time: 780, lat: 180, lon: 288)> Size: 162MB
+[40435200 values with dtype=float32]
+Coordinates:
+    height   float64 8B ...
+  * lat      (lat) float64 1kB -89.5 -88.5 -87.5 -86.5 ... 86.5 87.5 88.5 89.5
+  * lon      (lon) float64 2kB 0.625 1.875 3.125 4.375 ... 356.9 358.1 359.4
+  * time     (time) object 6kB 1950-01-16 12:00:00 ... 2014-12-16 12:00:00
+Attributes:
+    long_name:      Near-Surface Air Temperature
+    units:          K
+    cell_methods:   area: time: mean
+    cell_measures:  area: areacella
+    standard_name:  air_temperature
+    interp_method:  conserve_order2
+    original_name:  tas
+(Pdb) print(tas.dtype)
+float32
+(Pdb) print(tas['time'].values[0])
+1950-01-16 12:00:00
+(Pdb) print(tas['time'].values[-1])
+2014-12-16 12:00:00
+(Pdb) print(tas.attrs['units'])
+K
+(Pdb) print(np.diff(dset['lat'].values).mean())
+1.0
+(Pdb) print(np.diff(dset['lon'].values).mean())
+1.25
+(Pdb) time_diff = np.diff(tas['time'].values)
+(Pdb) print(np.unique(time_diff))
+[datetime.timedelta(days=29, seconds=43200)
+ datetime.timedelta(days=30, seconds=43200) datetime.timedelta(days=31)]
+(Pdb) python assignment_2.py
+*** SyntaxError: invalid syntax
+(Pdb) python assigment_2.py
+*** SyntaxError: invalid syntax
+(Pdb) ruta_hist = r'C:/Users/aleja/geo_env/Course_Data/Climate_Model_Data/tas_Amon_GFDL-ESM4_historical_r1i1p1f1_gr1_195001-201412.nc'
+(Pdb) dset_hist = xr.open_dataset(ruta_hist)
+(Pdb) mean_1950_1980 = dset_hist['tas'].sel(time=slice('1950-01-01', '1980-12-31')).mean(dim='time')
+(Pdb) print("Temperatura media 1950-1980 calculada")
+Temperatura media 1950-1980 calculada
+(Pdb) print(mean_1950_1980)
+<xarray.DataArray 'tas' (lat: 180, lon: 288)> Size: 207kB
+array([[223.0667 , 223.03702, 223.00746, ..., 223.15549, 223.1258 ,
+        223.0963 ],
+       [224.14168, 224.07628, 224.01054, ..., 224.3374 , 224.27231,
+        224.20699],
+       [225.37149, 225.26808, 225.16475, ..., 225.68149, 225.57819,
+        225.47493],
+       ...,
+       [255.29723, 255.32037, 255.3434 , ..., 255.2273 , 255.25076,
+        255.27405],
+       [255.07666, 255.08824, 255.09978, ..., 255.0415 , 255.05336,
+        255.06496],
+       [254.87434, 254.8764 , 254.87859, ..., 254.86792, 254.8701 ,
+        254.87233]], shape=(180, 288), dtype=float32)
+Coordinates:
+    height   float64 8B ...
+  * lat      (lat) float64 1kB -89.5 -88.5 -87.5 -86.5 ... 86.5 87.5 88.5 89.5
+  * lon      (lon) float64 2kB 0.625 1.875 3.125 4.375 ... 356.9 358.1 359.4
+(Pdb) ruta_ssp585 = r'C:/Users/aleja/geo_env/Course_Data/Climate_Model_Data/tas_Amon_GFDL-ESM4_ssp585_r1i1p1f1_gr1_201501-210012.nc'
+(Pdb) dset_ssp585 = xr.open_dataset(ruta_ssp585)
+(Pdb) mean_2071_2100_ssp585 = dset_ssp585['tas'].sel(time=slice('2071-01-01', '2100-12-31')).mean(dim='time')
+(Pdb) print("Temperatura media 2071-2100 calculada")
+Temperatura media 2071-2100 calculada
+(Pdb) print(mean_2071_2100_ssp585)
+<xarray.DataArray 'tas' (lat: 180, lon: 288)> Size: 207kB
+array([[228.45221, 228.42485, 228.39732, ..., 228.53491, 228.50742,
+        228.48001],
+       [229.40703, 229.34299, 229.27924, ..., 229.59811, 229.53442,
+        229.47087],
+       [230.57056, 230.4651 , 230.35962, ..., 230.88707, 230.7816 ,
+        230.67621],
+       ...,
+       [264.10208, 264.12045, 264.13864, ..., 264.0467 , 264.0653 ,
+        264.0837 ],
+       [263.91147, 263.92004, 263.9286 , ..., 263.88544, 263.89435,
+        263.90292],
+       [263.7449 , 263.7459 , 263.7469 , ..., 263.74164, 263.74258,
+        263.74365]], shape=(180, 288), dtype=float32)
+Coordinates:
+    height   float64 8B ...
+  * lat      (lat) float64 1kB -89.5 -88.5 -87.5 -86.5 ... 86.5 87.5 88.5 89.5
+  * lon      (lon) float64 2kB 0.625 1.875 3.125 4.375 ... 356.9 358.1 359.4
+(Pdb) temp_change_ssp585 = mean_2071_2100_ssp585 - mean_1950_1980
+(Pdb) print("Cambio de temperatura calculado")
+Cambio de temperatura calculado
+(Pdb) print(temp_change_ssp585)
+<xarray.DataArray 'tas' (lat: 180, lon: 288)> Size: 207kB
+array([[5.3855133, 5.3878326, 5.389862 , ..., 5.379425 , 5.3816223,
+        5.383713 ],
+       [5.2653503, 5.2667084, 5.268692 , ..., 5.2607117, 5.2621155,
+        5.2638855],
+       [5.199066 , 5.1970215, 5.19487  , ..., 5.2055817, 5.203415 ,
+        5.2012787],
+       ...,
+       [8.804855 , 8.800079 , 8.795242 , ..., 8.819397 , 8.814545 ,
+        8.809662 ],
+       [8.834808 , 8.831802 , 8.828812 , ..., 8.843933 , 8.840988 ,
+        8.837967 ],
+       [8.87056  , 8.869507 , 8.868301 , ..., 8.873718 , 8.872482 ,
+        8.871323 ]], shape=(180, 288), dtype=float32)
+Coordinates:
+    height   float64 8B 2.0
+  * lat      (lat) float64 1kB -89.5 -88.5 -87.5 -86.5 ... 86.5 87.5 88.5 89.5
+  * lon      (lon) float64 2kB 0.625 1.875 3.125 4.375 ... 356.9 358.1 359.4
+(Pdb) plt.figure(figsize=(10, 6))
+
+(Pdb) plt.figure(figsize=(10, 6))
+<Figure size 1000x600 with 0 Axes>
+(Pdb) plt.imshow(temp_change_ssp585, cmap='coolwarm', origin='lower')
+<matplotlib.image.AxesImage object at 0x0000028719829A30>
+(Pdb) plt.colorbar(label='Temperature Change (°C)')
+<matplotlib.colorbar.Colorbar object at 0x000002871771ADB0>
+(Pdb) plt.title('Temperature Change 2071–2100 vs 1950–1980 (SSP585)')
+Text(0.5, 1.0, 'Temperature Change 2071–2100 vs 1950–1980 (SSP585)')
+(Pdb) plt.xlabel('Longitude')
+Text(0.5, 0, 'Longitude')
+(Pdb) plt.ylabel('Latitude')
+Text(0, 0.5, 'Latitude')
+(Pdb) plt.savefig('temp_change_ssp585.png', dpi=300)
+(Pdb) plt.show()
+(Pdb)
